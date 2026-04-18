@@ -1,8 +1,9 @@
-
+import Header from './components/Header';
 function App() {
 
   return (
     <>
+    <Header></Header>
       <h1 className="text-center bg-red-400 text-4xl py-4">Template for the TechBurger project</h1>
     </>
   )
