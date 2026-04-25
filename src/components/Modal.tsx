@@ -1,18 +1,18 @@
 import React, { type ReactNode } from 'react';
 
-interface ModalProps {
+interface ModalProps { /*ModalProps sisällä ne tarvittavat jutut*/ 
   onClose: () => void;
   children: ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
   return (
-    /* Backdrop: Darkens background and centers the modal */
+    /* Backdrop: Tummentaa taustan kun modal avataan */
     <div 
       className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
       onClick={onClose} // sulkee modalin jos klikkaa sen vierestä
     >
-      /* Content Box: White container for the children */
+      {/* Children-laatikko eli varsinainen modal */}
       <div 
         className="bg-white rounded-2xl max-w-lg w-full relative overflow-hidden"
         onClick={(e) => e.stopPropagation()} // estää sulkemisen jos klikkaa modalin sisäpuolelta
