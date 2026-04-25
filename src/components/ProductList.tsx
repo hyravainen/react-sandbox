@@ -1,12 +1,15 @@
 import Product from '../types';
-import ProductCard from 'components/ProductCard'
+import ProductCard from './components/ProductCard'
+import { useState } from 'react';
 
 export default function ProductList() {
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    
     const products: Product[] = [
         {
             id: "1",
             name: "Classic Tech",
-            description: "Beef patty & secret sauce"
+            description: "Beef patty & secret sauce",
             price: "12.50",
             image: "kuva1",
             category: "burgers",
@@ -40,7 +43,10 @@ export default function ProductList() {
 return (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     {products.map((product) => (
-       <ProductCard key={product.id} product={product} />
+       <ProductCard 
+       key={product.id} 
+       product={product}
+       onSelect={setSelectedProduct} />
     ))}
   </div>
 );
